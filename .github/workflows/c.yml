@@ -1,0 +1,16 @@
+name: Compilar projeto C
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compilar com avisos tratados como erros
+        run: gcc -std=c11 -Wall -Wextra -Wpedantic -Werror -fsanitize=address,undefined -g main.c listaAtividades.c -o projeto-paa
+      - name: Executar exemplo com verificacao de memoria
+        run: ./projeto-paa
