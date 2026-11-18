@@ -7,6 +7,7 @@ Projeto em C para gerenciamento de atividades.
 - `listaAtividades.c`: implementação das funções da lista.
 - `listaAtividades.h`: estruturas e declarações das funções.
 - `main.c`: exemplo de cadastro, busca, atualização, remoção e liberação de memória.
+-  `pilha.h`: estruturas `NoPilha` e `Pilha`, contratos e declaracoes.
 
 ## Compilar e executar
 
@@ -26,3 +27,12 @@ gcc -std=c11 -Wall -Wextra -Wpedantic main.c listaAtividades.c -o projeto-paa
 ./projeto-paa
 ```
 
+## Operacoes da pilha
+
+| Funcao | Resultado |
+| --- | --- |
+| `InicializarPilha(&pilha)` | Define topo nulo e tamanho zero. |
+| `empilhar(&pilha, valor)` | Insere no topo; retorna 1 no sucesso ou 0 se faltar memoria. |
+| `desempilhar(&pilha, &valor)` | Copia e remove o topo; retorna 1 no sucesso ou 0 se vazia ou se a saida for nula. |
+| `pilhaVazia(&pilha)` | Retorna 1 se vazia ou 0 se houver nos. |
+| `liberarPilha(&pilha)` | Libera os nos restantes e permite reutilizacao. |
